@@ -8,18 +8,49 @@ WHERE
   T.name = 'Coucou'
   AND T.age = 22
 ORDER BY T.date;
+
+
 -- END Exercice 01
 
 
 -- BEGIN Exercice 02
+
+
+SELECT
+    customer_id, first_name, email FROM customer
+WHERE
+    first_name = 'PHYLLIS'
+AND
+    store_id = 1
+ORDER BY customer_id DESC;
+
 -- END Exercice 02
 
 
+
 -- BEGIN Exercice 03
+SELECT title, release_year FROM film
+WHERE
+    length < 60
+AND
+    rating = 'R'
+AND
+    replacement_cost = 12.99
+ORDER BY title;
 -- END Exercice 03
 
 
 -- BEGIN Exercice 04
+SELECT country.country, city.city, address.postal_code FROM address
+INNER JOIN city ON address.city_id = city.city_id
+INNER JOIN country ON city.country_id = country.country_id
+WHERE
+    country = 'France'
+   OR
+    (city.country_id >= 63
+         AND
+     city.country_id <= 67)
+order by country, city, postal_code;
 -- END Exercice 04
 
 
